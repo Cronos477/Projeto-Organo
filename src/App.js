@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-import Banner from './components/Banner/Banner';
+import { useState } from 'react';
+import Banner from './components/Banner';
+import Formulario from './components/Formulario';
+import Time from './components/Time';
 
-function App() {
+const App = () => {
+
+  const [colaboradores, setColaboradores] = useState([])
+
+  const colaboradorNovo = (colaborador) => {
+    console.log(colaborador)
+    setColaboradores([...colaboradores, colaborador])
+    console.log(colaboradores)
+  }
+
   return (
     <div className="App">
       <Banner />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello World!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Formulario colaboradorNovo={colaborador => colaboradorNovo(colaborador)}/>
+      <Time nome="Programação"/>
     </div>
   );
 }
