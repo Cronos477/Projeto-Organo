@@ -6,15 +6,7 @@ import { useState } from 'react'
 
 const Formulario = (props) => {
 
-    const times = [
-        'Programação',
-        'Front-End',
-        'Data Science',
-        'Devops',
-        'UX e Desing',
-        'Mobile',
-        'Inovação e Gestão'
-    ]
+    const times = props.times
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
