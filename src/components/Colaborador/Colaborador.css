@@ -3,7 +3,7 @@
 }
 
 .colaborador .cabecalho {
-    background-color: #F0F0F0;
+    background-color: var(--colaborador-header-color);
     border-radius: 10px 10px 0 0;
 }
 

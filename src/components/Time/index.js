@@ -3,15 +3,15 @@ import './Time.css'
 
 const Time = (props) => {
 
-    const backgroundColor = {backgroundColor: props.corSecundaria}
-    const borderColor= {borderColor: props.corPrimaria}
-
     return (
-        <section className='time' style={backgroundColor}>
-            <h3 style={borderColor}>{props.nome}</h3>
+        <section className='time' style={{
+            '--team-bg-color': props.corSecundaria,
+            '--team-border-color': props.corPrimaria
+        }}>
+            <h3>{props.nome}</h3>
             <div className='colaboradores'>
-                <Colaborador />
-                <Colaborador />
+                <Colaborador headerColor={props.corPrimaria}/>
+                <Colaborador headerColor={props.corPrimaria}/>
             </div>
         </section>
     )
