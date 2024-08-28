@@ -16,12 +16,16 @@ const Formulario = (props) => {
           imagem,
           time
         })
+        setNome('')
+        setCargo('')
+        setIamgem('')
+        setTime('')
     }
 
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setIamgem] = useState('')
-    const [time, setTime] = useState(times[0])
+    const [time, setTime] = useState('')
 
     return (
       <section className="formulario">
