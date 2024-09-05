@@ -1,7 +1,15 @@
 .time {
     text-align: center;
     padding: 32px;
+    background-image: url("../../../public/imagens/fundo.png");
     background-color: var(--team-bg-color);
+    position: relative;
+}
+
+.colorInput {
+    position: absolute;
+    top: 20px;
+    right: 50px;
 }
 
 .time h3 {
@@ -14,6 +22,7 @@
 
 .time .colaboradores {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 32px;

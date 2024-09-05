@@ -1,12 +1,12 @@
 import Botao from "../Botao";
-import CampoTexto from "../CampoTexto";
+import Campo from "../Campo";
 import ListaSuspensa from "../ListaSuspensa";
 import './Formulario.css'
 import { useState } from 'react'
 
 const Formulario = (props) => {
 
-    const times = props.times
+    var times = props.times
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
@@ -26,26 +26,28 @@ const Formulario = (props) => {
     const [cargo, setCargo] = useState('')
     const [imagem, setIamgem] = useState('')
     const [time, setTime] = useState('')
+    const [nomeTime, setNomeTime] = useState('')
+    const [corTime, setCorTime] = useState('')
 
     return (
       <section className="formulario">
         <form onSubmit={aoSalvar}>
           <h2>Preencha os dados para criar o card do colaborador</h2>
-          <CampoTexto
+          <Campo
             valor={nome}
             setValor={(valor) => setNome(valor)}
             obrigatorio={true}
             label="Nome"
             placeholder="Digite seu nome"
           />
-          <CampoTexto
+          <Campo
             valor={cargo}
             setValor={valor => setCargo(valor)}
             obrigatorio={true}
             label="Cargo"
             placeholder="Digite seu cargo"
           />
-          <CampoTexto
+          <Campo
             valor={imagem}
             setValor={valor => setIamgem(valor)}
             obrigatorio={false}
@@ -60,6 +62,30 @@ const Formulario = (props) => {
             setValor={valor => setTime(valor)}
           />
           <Botao>Criar Card</Botao>
+        </form>
+        <form onSubmit={(evento) => {
+          evento.preventDefault();
+          props.cadastrarTime({nome: nomeTime, cor: corTime});
+          setNomeTime('');
+          setCorTime('');
+        }}>
+          <h2>Preencha os dados para criar um novo time</h2>
+          <Campo
+            valor={nomeTime}
+            setValor={(valor) => setNomeTime(valor)}
+            obrigatorio
+            label="Nome"
+            placeholder="Digite o nome do time"
+          />
+          <Campo
+            type="color"
+            valor={corTime}
+            setValor={valor => setCorTime(valor)}
+            obrigatorio
+            label="Cor"
+            placeholder="Digite a cor do time"
+          />
+          <Botao>Criar Time</Botao>
         </form>
       </section>
     );
